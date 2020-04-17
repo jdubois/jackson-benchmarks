@@ -2,8 +2,8 @@ package com.mycompany.myapp.config;
 
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 
+import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -32,8 +32,8 @@ public class JacksonConfiguration {
      * Jackson Afterburner module to speed up serialization/deserialization.
      */
     @Bean
-    public AfterburnerModule afterburnerModule() {
-        return new AfterburnerModule();
+    public BlackbirdModule afterburnerModule() {
+        return new BlackbirdModule();
     }
 
     /*
