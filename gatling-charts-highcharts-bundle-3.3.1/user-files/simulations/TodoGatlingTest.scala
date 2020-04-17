@@ -53,6 +53,6 @@ class TodoGatlingTest extends Simulation {
     val users = scenario("Users").exec(scn)
 
     setUp(
-        users.inject(rampUsers(Integer.getInteger("users", 10000)) during (Integer.getInteger("ramp", 1) minutes))
+        users.inject(rampUsers(Integer.getInteger("users", 1000)) during (Integer.getInteger("ramp", 1) minutes))
     ).protocols(httpConf)
 }
