@@ -104,10 +104,6 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-afterburner</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.jdbi.jackson-contrib</groupId>
             <artifactId>jackson-module-blackbird</artifactId>
             <version>0.0.1</version>
