@@ -34,25 +34,15 @@ class TodoGatlingTest extends Simulation {
 
     val scn = scenario("Test the Todo entity")
         .repeat(100) {
-            exec(http("Create new todo")
-                .post("/todo")
-                .body(StringBody(
-                    """{
-                "id":null
-                , "description":"SAMPLE_TEXT"
-                , "details":"SAMPLE_TEXT"
-                , "done":null
-                }""")).asJson
-                .check(status.is(201)))
-                .exec(http("Get all todos")
+            exec(http("Get all todos")
                     .get("/todo")
                     .check(status.is(200)))
-                .pause(1 seconds, 2 seconds)
+            .pause(1 seconds, 2 seconds)
         }
 
     val users = scenario("Users").exec(scn)
 
     setUp(
-        users.inject(rampUsers(Integer.getInteger("users", 1000)) during (Integer.getInteger("ramp", 1) minutes))
+        users.inject(rampUsers(Integer.getInteger("users", 10000)) during (Integer.getInteger("ramp", 1) minutes))
     ).protocols(httpConf)
 }
