@@ -1,24 +1,33 @@
 package com.mycompany.myapp.domain;
 
-import org.springframework.data.annotation.Id;
+import java.util.Date;
 
 public class Todo {
 
     public Todo() {
     }
 
-    public Todo(String description, String details, boolean done) {
+    public Todo(Long id, String description, String details, Date creationDate, int priority, User assignedTo, boolean done) {
+        this.id = id;
         this.description = description;
         this.details = details;
+        this.creationDate = creationDate;
+        this.priority = priority;
+        this.assignedTo = assignedTo;
         this.done = done;
     }
 
-    @Id
     private Long id;
 
     private String description;
 
     private String details;
+
+    private Date creationDate;
+
+    private int priority;
+
+    private User assignedTo;
 
     private boolean done;
 
@@ -44,6 +53,30 @@ public class Todo {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public User getAssignedTo() {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(User assignedTo) {
+        this.assignedTo = assignedTo;
     }
 
     public boolean isDone() {
